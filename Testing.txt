@@ -1,0 +1,55 @@
+import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QLineEdit, QComboBox, QCheckBox, QRadioButton, QTextEdit, QSlider, QSpinBox, QProgressBar, QTableWidget, QTableWidgetItem, QVBoxLayout, QHBoxLayout, QWidget
+from PySide6.QtCore import Qt
+
+class DemoWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        # Main Widget and Layout
+        main_widget = QWidget()
+        self.setCentralWidget(main_widget)
+        main_layout = QVBoxLayout(main_widget)
+
+        # Function to add widget with label
+        def add_widget_with_label(layout, widget, label_text):
+            hbox = QHBoxLayout()
+            label = QLabel(label_text)
+            hbox.addWidget(label)
+            hbox.addWidget(widget)
+            layout.addLayout(hbox)
+
+        # QLabel
+        self.label = QLabel('Robot Parlay')
+        # Center the text within the label
+        self.label.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(self.label)
+
+        # QLineEdit
+        self.line_edit = QLineEdit()
+        add_widget_with_label(main_layout, self.line_edit, 'Which game do you want to bet on?')
+
+        # QComboBox
+        self.combo_box = QComboBox()
+        self.combo_box.addItems(['3 Legs', '4 Legs', '5 Legs'])
+        add_widget_with_label(main_layout, self.combo_box, 'How many legs do you want?')
+
+        # QPushButton
+        self.button = QPushButton('Generate Parlay')
+        self.button.clicked.connect(self.on_button_clicked)
+        main_layout.addWidget(self.button)
+
+        # Add empty QLabeld as placeholderd for the spins, flips, and legs
+        self.firstspin_label = QLabel("")
+        main_layout.addWidget(self.bottom_label)
+
+    def on_button_clicked(self):
+       self.label.setText('Generating...')
+       self.bottom_label.setText('The first leg is')
+
+
+# Run the application
+app = QApplication(sys.argv)
+window = DemoWindow()
+window.show()
+sys.exit(app.exec())
