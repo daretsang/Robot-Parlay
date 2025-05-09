@@ -20,7 +20,7 @@ placeholder5 = st.empty()
 
 lineup_url = "https://www.mlb.com/" + teamname +"/roster/starting-lineups"
 
-if lineup_url:
+if start:
     try:
         response = requests.get(lineup_url)
         soup = BeautifulSoup(response.content, 'lxml')
