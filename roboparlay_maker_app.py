@@ -5,7 +5,7 @@ import random
 
 
 # title
-st.title("Robot Parlay 📈")
+st.title("MLB Robot Parlay 📈")
 
 # --- User Input ---
 teamname = st.text_input("Enter the team you want to bet on: Only enter the team name and not the city/state (e.g. bluejays)").lower()
