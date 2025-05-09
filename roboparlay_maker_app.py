@@ -9,7 +9,7 @@ st.title("Robot Parlay 📈")
 
 # --- User Input ---
 teamname = st.text_input("Enter the team you want to bet on:")
-number_legs = st.number_input("How many legs do you want your parlay to be?", min_value=3, , max_value=5, step=1)
+number_legs = st.number_input("How many legs do you want your parlay to be?", min_value=3, max_value=5, step=1)
 
 start = st.button("Generate Parlay")
 placeholder1 = st.empty()
@@ -22,7 +22,7 @@ lineup_url = "https://www.mlb.com/" + teamname +"/roster/starting-lineups"
 
 if lineup_url:
     try:
-        response = requests.get(url)
+        response = requests.get(lineup_url)
         soup = BeautifulSoup(response.content, 'lxml')
 
         # get lineups for the away and home teams
@@ -36,9 +36,9 @@ if lineup_url:
         for player in players:
             flip = random.choice(["Heads", "Tails"])
             if flip == "Heads":
-                globals()[f'placeholder{counter}'].markdown(full_lineup[position] + " for 2 Hits/Runs/RBIs")
+                globals()[f'placeholder{counter}'].markdown(full_lineup[player] + " for 2 Hits/Runs/RBIs")
             else:
-                globals()[f'placeholder{counter}'].markdown(full_lineup[position] + " for 1 Hit")
+                globals()[f'placeholder{counter}'].markdown(full_lineup[player] + " for 1 Hit")
             coutner += 1
 
 
