@@ -39,7 +39,7 @@ if lineup_url:
                 globals()[f'placeholder{counter}'].markdown(full_lineup[player] + " for 2 Hits/Runs/RBIs")
             else:
                 globals()[f'placeholder{counter}'].markdown(full_lineup[player] + " for 1 Hit")
-            coutner += 1
+            counter += 1
 
 
     except Exception as e:
