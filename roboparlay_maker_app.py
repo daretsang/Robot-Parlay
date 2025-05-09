@@ -8,7 +8,7 @@ import random
 st.title("Robot Parlay 📈")
 
 # --- User Input ---
-teamname = st.text_input("Enter the team you want to bet on:")
+teamname = st.text_input("Enter the team you want to bet on: Only enter the team name and not the city/state (e.g. bluejays)").lower()
 number_legs = st.number_input("How many legs do you want your parlay to be?", min_value=3, max_value=5, step=1)
 
 start = st.button("Generate Parlay")
