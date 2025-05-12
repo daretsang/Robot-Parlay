@@ -78,7 +78,7 @@ elif league == "NHL":
                 players.append(player.text.strip())
 
             response2 = requests.get(lineup_url2, headers = headers)
-            soup2 = BeautifulSoup(response1.content, 'lxml')
+            soup2 = BeautifulSoup(response2.content, 'lxml')
 
             top6_2 = soup2.find_all('div', class_='flex flex-row justify-center')
             for player in (top6_2[:6]):
@@ -91,7 +91,7 @@ elif league == "NHL":
                 globals()[f'placeholder{counter}'].markdown(players[choice] + " for a Point")
                 counter += 1
 
-            placeholder5 = str(players)
+            placeholder5 = 'ok'
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
