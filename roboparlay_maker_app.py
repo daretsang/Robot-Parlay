@@ -51,8 +51,8 @@ if league == "MLB":
             st.error(f"An error occurred: {e}")
     
 elif league == "NHL":
-    teamname1 = st.text_input("enter the first team you want to bet on (format: vegas-golden-knights)").lower()
-    teamname2 = st.text_input("enter the second team you want to bet on (format: winnipeg-jets)").lower()
+    teamname1 = st.text_input("Enter the first team you want to bet on (format: vegas-golden-knights)").lower()
+    teamname2 = st.text_input("Enter the second team you want to bet on (format: winnipeg-jets)").lower()
     number_legs = st.number_input("How many legs do you want your parlay to be?", min_value=3, max_value=5, step=1)
 
 
@@ -88,7 +88,7 @@ elif league == "NHL":
 
             counter = 1
             for choice in chosen:
-                globals()[f'placeholder{counter}'].markdown(players[choice] + " for 1+ Point")
+                globals()[f'placeholder{counter}'].markdown(players[choice] + " for a Point")
                 counter += 1
 
         except Exception as e:
