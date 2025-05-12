@@ -91,7 +91,5 @@ elif league == "NHL":
                 globals()[f'placeholder{counter}'].markdown(players[choice] + " for a Point")
                 counter += 1
 
-            placeholder5 = 'ok'
-
         except Exception as e:
             st.error(f"An error occurred: {e}")
