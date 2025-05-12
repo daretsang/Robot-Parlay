@@ -84,7 +84,7 @@ elif league == "NHL":
             for player in (top6_2[:6]):
                 players.append(player.text.strip())
 
-            chosen = random.sample(range(1, 13), number_legs)
+            chosen = random.sample(range(0, 12), number_legs)
 
             counter = 1
             for choice in chosen:
